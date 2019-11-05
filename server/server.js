@@ -46,6 +46,14 @@ app.use((req, res, next) => {
   });
 });
 
+const mainRoutes = require("./routes/main");
+const userRoutes = require("./routes/user");
+const adminRoutes = require("./routes/admin");
+
+app.use("/api/v1", mainRoutes);
+app.use("/api/v1", userRoutes);
+app.use("/api/v1", adminRoutes);
+
 const port = process.env.PORT || 4000;
 
 app.listen(port, err => {
